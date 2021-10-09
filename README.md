@@ -1,13 +1,12 @@
-# Taking A Closer Look at Domain Shift: Category-level Adversaries for Semantics Consistent Domain Adaptation (CVPR2019)
-This is a [pytorch](http://pytorch.org/) implementation of [CLAN](http://openaccess.thecvf.com/content_CVPR_2019/papers/Luo_Taking_a_Closer_Look_at_Domain_Shift_Category-Level_Adversaries_for_CVPR_2019_paper.pdf).
+# Adversarial Semantic Hallucination for Domain Generalized Semantic Segmentation
+This is a [pytorch](http://pytorch.org/) implementation of [ASH]().
 
-### Oral Presentation Video
-[![Watch the video](https://github.com/RoyalVane/CLAN/blob/master/gifs/video.png)](https://www.bilibili.com/video/av53561336/)
+
 
 ### Prerequisites
 - Python 3.6
-- GPU Memory >= 11G
-- Pytorch 1.0.0
+- GPU Memory >= 16G
+- Pytorch 1.6.0
 
 ### Getting started
 
@@ -17,7 +16,7 @@ This is a [pytorch](http://pytorch.org/) implementation of [CLAN](http://openacc
 
 - Download [The Cityscapes Dataset]( https://www.cityscapes-dataset.com/ )
 
-- Download [The imagenet pretraind model]( https://drive.google.com/open?id=13kjtX481LdtgJcpqD3oROabZyhGLSBm2 )
+
 
 The data folder is structured as follows:
 ```
@@ -70,26 +69,9 @@ python CLAN_iou_bulk.py
   <img src="https://github.com/RoyalVane/CLAN/blob/master/gifs/video_4.gif"  width="420" height="210" alt="(d)"/>
 </p>
 
-#### This code is heavily borrowed from the baseline [AdaptSegNet]( https://github.com/wasidennis/AdaptSegNet )
+#### This code is heavily borrowed from the baseline CLAN https://github.com/RoyalVane/CLAN )
 
 ### Citation
 If you use this code in your research please consider citing
 ```
-@article{luo2021category,
-  title={Category-Level Adversarial Adaptation for Semantic Segmentation using Purified Features},
-  author={Luo, Yawei and Liu, Ping and Zheng, Liang and Guan, Tao and Yu, Junqing and Yang, Yi},
-  journal={IEEE Transactions on Pattern Analysis \& Machine Intelligence (TPAMI)},
-  year={2021},
-}
 
-@inproceedings{luo2019Taking,
-title={Taking A Closer Look at Domain Shift: Category-level Adversaries for Semantics Consistent Domain Adaptation},
-author={Luo, Yawei and Zheng, Liang and Guan, Tao and Yu, Junqing and Yang, Yi},
-booktitle={The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-year={2019}
-}
-```
-
-
-### Related works
-[Seg-Uncertainty]( https://github.com/layumi/Seg-Uncertainty#related-works )
