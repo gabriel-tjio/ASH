@@ -57,18 +57,6 @@ CUDA_VISIBLE_DEVICES=0 python CLAN_evaluate_bulk.py
 python CLAN_iou_bulk.py
 ```
 
-### Visualization Results
-<p align="left">
-	<img src="https://github.com/RoyalVane/CLAN/blob/master/gifs/video_1.gif"  width="420" height="210" alt="(a)"/>
-
-  <img src="https://github.com/RoyalVane/CLAN/blob/master/gifs/video_2.gif"  width="420" height="210" alt="(b)"/>
-</p>
-<p align="left">
-	<img src="https://github.com/RoyalVane/CLAN/blob/master/gifs/video_3.gif"  width="420" height="210" alt="(c)"/>
-  
-  <img src="https://github.com/RoyalVane/CLAN/blob/master/gifs/video_4.gif"  width="420" height="210" alt="(d)"/>
-</p>
-
 #### This code is heavily borrowed from the baseline CLAN https://github.com/RoyalVane/CLAN )
 
 ### Citation
