@@ -81,4 +81,69 @@ class CrossEntropy2d(nn.Module):
             loss = batch_loss.sum()
         return loss
 
+
+class CF_NLL2d(nn.Module):
+    
+    def __init__(self, class_num, alpha=None, gamma=2, size_average=True, ignore_label=255):
+        super(CF_NLL2d, self).__init__()
+        if alpha is None:
+            self.alpha = Variable(torch.ones(class_num, 1))
+        else:
+            if isinstance(alpha, Variable):
+                self.alpha = alpha
+            else:
+                self.alpha = Variable(alpha)
+        self.gamma = gamma
+        self.class_num = class_num
+        self.size_average = size_average
+        self.ignore_label = ignore_label
+
+    def forward(self, predict, target):
+        N, C, H, W = predict.size()
+        sm = nn.Softmax2d()
         
+        P = sm(predict)
+        P = torch.clamp(P, min = 1e-9, max = 1-(1e-9))
+        
+        target_mask = (target >= 0) * (target != self.ignore_label)
+        target = target[target_mask].view(1, -1)
+        predict = P[target_mask.view(N, 1, H, W).repeat(1, C, 1, 1)].view(C, -1)
+        probs = torch.gather(predict, dim = 0, index = target)
+        log_p = (1-probs+1e-12).log()
+        batch_loss = -log_p 
+
+        if self.size_average:
+            loss = batch_loss.mean()
+        else:
+            
+            loss = batch_loss.sum()
+        return loss
+        
+
+def kd_loss(output, teacher_output, alpha=0.1, temperature=1.0):
+    """
+    from:
+        https://github.com/peterliht/knowledge-distillation-pytorch
+        
+    Compute the knowledge-distillation (KD) loss given outputs, labels.
+    "Hyperparameters": temperature and alpha
+    NOTE: the KL Divergence for PyTorch comparing the softmaxs of teacher
+    and student expects the input tensor to be log probabilities! See Issue #2
+    """
+    alpha = alpha
+    T = temperature
+    
+    """
+    kd_loss = nn.KLDivLoss(reduction='none')(F.log_softmax(output/T, dim=1),
+                                             F.softmax(teacher_output/T, dim=1)).type(torch.FloatTensor).cuda(gpu)
+    
+    kd_loss = kd_filter * torch.sum(kd_loss, dim=1) # kd filter is filled with 0 and 1.
+    kd_loss = torch.sum(kd_loss) / torch.sum(kd_filter) * (alpha * T * T)
+    """
+    
+    kd_loss = nn.KLDivLoss(reduction='batchmean')(F.log_softmax(output/T, dim=1),
+                                                  F.softmax(teacher_output/T, dim=1)) * (alpha * T * T)
+
+    cr_loss = nn.CrossEntropyLoss()(output, label) * (1. - alpha)
+    
+    return kd_loss + cr_loss
