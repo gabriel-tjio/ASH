@@ -57,7 +57,7 @@ CUDA_VISIBLE_DEVICES=0 python CLAN_evaluate_bulk.py
 python CLAN_iou_bulk.py
 ```
 
-#### This code is heavily borrowed from the baseline CLAN https://github.com/RoyalVane/CLAN )
+#### This code is heavily borrowed from the baseline CLAN https://github.com/RoyalVane/CLAN ) and pytorch_adain (https://github.com/naoto0804/pytorch-AdaIN)
 
 ### Citation
 If you use this code in your research please consider citing
