@@ -59,7 +59,29 @@ python CLAN_iou_bulk.py
 
 #### This code is heavily borrowed from the baseline CLAN https://github.com/RoyalVane/CLAN ) and pytorch_adain (https://github.com/naoto0804/pytorch-AdaIN)
 
+GTA trained model
+https://drive.google.com/file/d/1eVnDMC3ytyl5Wx8H5VPKoTNq1UGXmS56/view?usp=sharing
+
 ### Citation
 If you use this code in your research please consider citing
+@article{DBLP:journals/corr/abs-2106-04144,
+  author    = {Gabriel Tjio and
+               Ping Liu and
+               Joey Tianyi Zhou and
+               Rick Siow Mong Goh},
+  title     = {Adversarial Semantic Hallucination for Domain Generalized Semantic
+               Segmentation},
+  journal   = {CoRR},
+  volume    = {abs/2106.04144},
+  year      = {2021},
+  url       = {https://arxiv.org/abs/2106.04144},
+  eprinttype = {arXiv},
+  eprint    = {2106.04144},
+  timestamp = {Fri, 11 Jun 2021 11:04:16 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2106-04144.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
 ```
 
