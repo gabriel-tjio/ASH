@@ -64,6 +64,10 @@ https://drive.google.com/file/d/1eVnDMC3ytyl5Wx8H5VPKoTNq1UGXmS56/view?usp=shari
 
 ### Citation
 If you use this code in your research please consider citing
+
+
+
+```
 @inproceedings{ASH,
   author    = {Gabriel Tjio and
                Ping Liu and
@@ -74,7 +78,4 @@ If you use this code in your research please consider citing
  booktitle = {IEEE Winter Conf. on Applications of Computer Vision},
  year = {2022}
 }
-
-
-```
 
