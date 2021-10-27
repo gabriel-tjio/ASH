@@ -61,6 +61,7 @@ python CLAN_iou_bulk.py
 
 GTA trained model
 https://drive.google.com/file/d/1eVnDMC3ytyl5Wx8H5VPKoTNq1UGXmS56/view?usp=sharing
+
 SYN trained model
 https://drive.google.com/file/d/1XTmJhXCGeD2KrK7M7Xklq0Gayvd0n86e/view?usp=sharing
 
